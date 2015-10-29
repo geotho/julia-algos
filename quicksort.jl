@@ -10,8 +10,6 @@ function quicksort(list::Array{Int})
   return [quicksort(left) ; pivot ; quicksort(right)]
 end
 
-nums = rand(1:1_000_000, 1_000_000)
-# print(nums, "\n")
-# print(quicksort(nums), "\n")
 quicksort([2,1,3])
+nums = rand(1:1_000_000, 1_000_000)
 @time quicksort(nums)
