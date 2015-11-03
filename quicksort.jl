@@ -42,7 +42,7 @@ nums = rand(1:1_000_000, 1_000_000)
 println("Using quicksort in place")
 quicksort_ip!([2,1,3])
 nums = rand(1:1_000_000, 1_000_000)
-@time quicksort_itr!(nums)
+@time quicksort_ip!(nums)
 
 # Using quicksort alloc
 #  11.274339 seconds (86.80 M allocations: 3.113 GB, 3.67% gc time)
