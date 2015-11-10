@@ -1,6 +1,4 @@
 using Hurricane
-using MacroTools
-
 
 function fib(n)
 
