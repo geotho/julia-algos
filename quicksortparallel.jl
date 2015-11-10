@@ -21,16 +21,19 @@ function quicksort_parallel(list::Array{Int})
   left = filter(x -> x < pivot, list)
   right = filter(x -> x ≥ pivot, list[2:end])
   @join begin
-    return [@go(quicksort_parallel(left)) ; pivot ; @go(quicksort_parallel(right))]
+    sorted_left = @go(quicksort_parallel(left))
+    sorted_right = @go(quicksort_parallel(right))
   end
+  return [sorted_left ; pivot ; sorted_right]
 end
 
 println("Using quicksort alloc")
 @show quicksort([2, 1, 3])
-nums = rand(1:1_000, 1_000)
+nums = rand(1:100_000, 100000)
 @time quicksort(nums)
 
+println()
 println("Using quicksort parallel")
 @show quicksort_parallel([2, 1, 3])
-nums = rand(1:1_000, 1_000)
+nums = rand(1:100_000, 100000)
 @time quicksort_parallel(nums)
