@@ -44,7 +44,9 @@ sort!([2,1,3]; alg=QuickSort)
 nums = rand(1:1_000_000, arraylength)
 @time sort!(nums; alg=QuickSort)
 
-# Using quicksort alloc
-#  11.274339 seconds (86.80 M allocations: 3.113 GB, 3.67% gc time)
 # Using quicksort in place
-#   2.439658 seconds (23.70 M allocations: 1.231 GB, 4.25% gc time)
+#  26.123049 seconds (37.13 M allocations: 2.874 GB, 60.48% gc time)
+# Using sort!
+#   0.093997 seconds (4 allocations: 160 bytes)
+# Using Julia quicksort
+#   0.083541 seconds (5 allocations: 240 bytes)
